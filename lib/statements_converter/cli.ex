@@ -11,7 +11,9 @@ defmodule StatementsConverter.CLI do
   """
 
   def run(argv) do
-    parse_args(argv)
+    argv
+    |> parse_args
+    |> process
   end
 
   @doc """
@@ -50,5 +52,27 @@ defmodule StatementsConverter.CLI do
   end
 
   defp parse_options(_), do: :help
+
+  def process(:help) do
+    IO.puts """
+    usage: statements_converter -f <file format> [files | #{@default_files}]
+    """
+    print_supported_formats
+  end
+
+  def process(:invalid_format) do
+    IO.puts "Invalid format specified"
+    print_supported_formats
+  end
+
+  defp print_supported_formats do
+    IO.write """
+    List of valid formats:
+    """
+    supported_formats
+    |> Enum.map(fn {f,_} -> IO.puts Atom.to_string(f) end)
+    |> Enum.join(", ")
+    |> IO.puts
+  end
 
 end
