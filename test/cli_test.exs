@@ -16,15 +16,20 @@ defmodule CliTest do
   end
 
   test "format is correctly parsed and returns as the first tuple value" do
-    assert parse_args(["--format", "test"]) == {"test", "*.csv"}
-    assert parse_args(["-f", "test"]) == {"test", "*.csv"}
+    assert parse_args(["--format", "bancobpi"]) == {"bancobpi", "*.csv"}
+    assert parse_args(["-f", "bancobpi"]) == {"bancobpi", "*.csv"}
+  end
+
+  test "unrecognizable format returns :invalid_format" do
+    assert parse_args(["--format", "test"]) == :invalid_format
+    assert parse_args(["-f", "test"]) == :invalid_format
   end
 
   test "specified file is correctly parsed as second tuple value" do
-    assert parse_args(["-f", "test", "test.csv"]) == {"test", "test.csv"}
+    assert parse_args(["-f", "bancobpi", "test.csv"]) == {"bancobpi", "test.csv"}
   end
 
   test "files is not mandatory and returns the default *.csv" do
-    assert parse_args(["-f", "test"]) == {"test", "*.csv"}
+    assert parse_args(["-f", "bancobpi"]) == {"bancobpi", "*.csv"}
   end
 end
