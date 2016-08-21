@@ -1,6 +1,6 @@
 defmodule StatementsConverter.CLI do
 
-  @default_files "*.csv"
+  @default_files "{*.csv,*.xls}"
 
   alias StatementsConverter.QIF
   import StatementsConverter, only: [supported_formats: 0,
