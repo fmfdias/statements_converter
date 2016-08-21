@@ -2,20 +2,22 @@ defmodule QIFTest do
   use ExUnit.Case
   doctest StatementsConverter.QIF
 
-  alias StatementsConverter.Transaction
+  alias StatementsConverter.Statement
+  alias StatementsConverter.Statement.Transaction
+
   import StatementsConverter.QIF, only: [write: 2, write: 3]
 
-  test "writes bank as default type" do
+  test "writes Bank as default type" do
     {:ok, io} = StringIO.open("")
     transactions = [%Transaction{amount: nil, date: nil,
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io)
+    write(%Statement{type: nil, transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
+    !Type:Bank
     ^
     """
   end
@@ -26,27 +28,27 @@ defmodule QIFTest do
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io, [type: "card"])
+    write(%Statement{type: "CCard", transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:card
+    !Type:CCard
     ^
     """
   end
 
-  test "formats dates as \"{0D}/{0M}/{YYYY}\" by default" do
+  test "formats dates as \"{0D}-{0M}-{YYYY}\" by default" do
     {:ok, io} = StringIO.open("")
     transactions = [%Transaction{amount: nil, date: ~D[2016-08-06],
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io)
+    write(%Statement{transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
-    D06/08/2016
+    !Type:Bank
+    D06-08-2016
     ^
     """
   end
@@ -57,12 +59,16 @@ defmodule QIFTest do
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io, [date_format: "{0M}/{0D}/{YYYY}"])
+    write(
+      %Statement{transactions: transactions}, 
+      io, 
+      [date_format: "{0M}-{0D}-{YYYY}"]
+    )
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
-    D08/06/2016
+    !Type:Bank
+    D08-06-2016
     ^
     """
   end
@@ -73,11 +79,11 @@ defmodule QIFTest do
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io)
+    write(%Statement{transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
+    !Type:Bank
     T-3.33
     ^
     """
@@ -89,11 +95,11 @@ defmodule QIFTest do
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io)
+    write(%Statement{transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
+    !Type:Bank
     T-3.33
     ^
     """
@@ -105,11 +111,11 @@ defmodule QIFTest do
       memo: nil,
       payee: nil}
     ]
-    write(transactions, io)
+    write(%Statement{transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
+    !Type:Bank
     T2.00
     ^
     """
@@ -121,11 +127,11 @@ defmodule QIFTest do
       memo: "Hello memo",
       payee: nil}
     ]
-    write(transactions, io)
+    write(%Statement{transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
+    !Type:Bank
     MHello memo
     ^
     """
@@ -137,11 +143,11 @@ defmodule QIFTest do
       memo: nil,
       payee: "Hello payee"}
     ]
-    write(transactions, io)
+    write(%Statement{transactions: transactions}, io)
     result = StringIO.flush(io)
     StringIO.close(io)
     assert result == """
-    !Type:bank
+    !Type:Bank
     PHello payee
     ^
     """

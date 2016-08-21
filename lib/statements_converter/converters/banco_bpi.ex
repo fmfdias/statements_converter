@@ -1,6 +1,8 @@
 defmodule StatementsConverter.Converters.BancoBPI do
 
-  alias StatementsConverter.Transaction
+  alias StatementsConverter.Statement
+  alias StatementsConverter.Statement.Transaction
+
   import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1]
 
   def parse(file) do
@@ -19,7 +21,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
     |> Enum.at(1)
     |> Floki.find("tr"))
     
-    Enum.map(rows, &parse_row(&1, :card))
+    %Statement{type: "CCard", transactions: Enum.map(rows, &parse_row(&1, :card))}
   end
 
   defp parse_data(data, :bank) do
@@ -28,7 +30,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
     |> Enum.at(1)
     |> Floki.find("tr"))
 
-    Enum.map(rows, &parse_row(&1, :bank))
+    %Statement{type: "Bank", transactions: Enum.map(rows, &parse_row(&1, :bank))}
   end
 
   defp parse_row(row, :card) do

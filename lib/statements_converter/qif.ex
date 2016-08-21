@@ -1,5 +1,7 @@
 defmodule StatementsConverter.QIF do
-  alias StatementsConverter.Transaction
+
+  alias StatementsConverter.Statement
+  alias StatementsConverter.Statement.Transaction
 
   @supported_fields [
     date:           "D",
@@ -10,15 +12,14 @@ defmodule StatementsConverter.QIF do
   ]
 
   @write_defaults [
-    date_format: "{0D}/{0M}/{YYYY}",
-    type: "bank"
+    date_format: "{0D}-{0M}-{YYYY}"
   ]
 
 
-  def write(transactions, io, opt \\ []) do
+  def write(statement = %Statement{}, io, opt \\ []) do
     opt = Keyword.merge(@write_defaults,opt)
-    write_header(opt[:type],io)
-    transactions
+    write_header(statement.type,io)
+    statement.transactions
     |> Enum.each(&write_transaction(&1, io, opt))
   end
 
@@ -61,7 +62,13 @@ defmodule StatementsConverter.QIF do
     IO.puts(io, "^")
   end
 
-  def write_header(type\\"Bank", io) do
+  def write_header(type\\"Bank", io)
+
+  def write_header(nil, io), do: write_header(io)
+
+  def write_header(type, io) do
     IO.puts(io, "!Type:#{type}")
   end
+
+  
 end
