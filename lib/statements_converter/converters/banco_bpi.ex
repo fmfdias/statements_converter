@@ -98,6 +98,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
   defp parse_memo(memo_cell) do
     memo_cell
     |> Floki.text
+    |> String.replace(~r/\s+/, " ")
     |> String.trim
   end
 
