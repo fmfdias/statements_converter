@@ -53,6 +53,14 @@ defmodule StatementsConverter.CLI do
 
   defp parse_options(_), do: :help
 
+  @doc """
+  Processes the parse_options results
+
+  It prints the help info when the param value is :help
+  It prints the help info when the param value is :invalid_format
+  It processes the files in the specified format when param is a tuple 
+  with the format and the files
+  """
   def process(:help) do
     IO.puts """
     usage: statements_converter -f <file format> [files | #{@default_files}]
@@ -63,6 +71,12 @@ defmodule StatementsConverter.CLI do
   def process(:invalid_format) do
     IO.puts "Invalid format specified"
     print_supported_formats
+  end
+
+  def process({format, files}) do
+    converter = StatementsConverter.get_converter(format)
+    Path.wildcard(files)
+    |> Enum.map(&converter.parse/1)
   end
 
   defp print_supported_formats do
