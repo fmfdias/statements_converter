@@ -1,0 +1,251 @@
+
+
+<script Language="JavaScript">
+var SiteLingua		= 'PT';
+var ClienteNetBolsa = 'S';
+
+</script>
+<html>
+<head>
+<title>BPI Net - Download de Movimentos de Cartões Não Extractados</title>
+<style>
+<!--table
+{mso-displayed-decimal-separator:"\,";
+mso-displayed-thousand-separator:"\.";}
+
+@page
+	{mso-header-data:"&CMultiplication Table\000ADate\: &D\000APage &P";
+	mso-page-orientation:landscape;}
+	br
+	{mso-data-placement:same-cell;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:windowtext;
+	font-size:10.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Arial;
+	mso-generic-font-family:auto;
+	mso-font-charset:0;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normal;
+	mso-style-id:0;}
+.xl24
+	{mso-style-parent:style0;
+	color:#666666; 
+	font-size:10px;
+	font-family:Verdana, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:Fixed;
+	text-align:right;}
+	
+.xl26
+	{mso-style-parent:style0;
+	mso-number-format:"Short Date";
+	text-align:center;
+	FONT-SIZE:10px; 
+	COLOR:#666666; 
+	FONT-FAMILY:Verdana;
+	}	
+-->
+</style>
+</head>
+
+<body>
+
+<table border="0" cellspacing="0" cellpadding="0">
+
+	<tr>
+		<td><p align='left' style='FONT-SIZE:25px; COLOR:#FF6600; FONT-FAMILY:Verdana'><b>BPI Net</b></p></td>
+	</tr>
+
+	<tr> 
+	   <td>&nbsp;</td>
+	</tr>  
+
+	<tr> 
+	   <td><p align='left' style='FONT-SIZE:15px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Movimentos Não Extractados<b>
+	   
+	   </p></td>
+	</tr>  
+
+	<tr> 
+	   <td>&nbsp;</td>
+	</tr>  
+	<tr>
+		<td>
+			<table>
+				<tr>
+					<td align="left"><p align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Nome</b></td>
+					<td align="left"><p align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>CLIENT NAME</b></td>
+				</tr>
+				<tr>
+					<td align="left"><p align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Cartão</b></td>
+					<td align="left"><p align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>0000</b> (Últimos 4 dígitos)</td>
+				</tr>
+				<tr>
+					<td align="left"><p align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Tipo de Cartão</b></td>
+					<td align="left"><p align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>CARD NAME</b></td>
+				</tr>
+				<tr> 
+				   <td colspan="2">&nbsp;</td>
+				</tr>  
+			</table>
+		</td>
+	</tr>
+
+						
+
+   	<tr>
+		<td>
+			<table border="0" cellspacing="0" cellpadding="0">
+
+
+				<tr align="center">
+					<td colspan="5"></td>
+					
+						<td colspan="2"><p align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Descontos</b></p></td>
+					
+				</tr>
+				<tr align="center">
+					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Data Transacção</b></font></td>
+					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Data Movimento</b></font></td>
+					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Descrição do Movimento</b></font></td>
+					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Número Cartão</b></font></td>
+					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Valor</b></font></td>
+					
+						<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>%</b></font></td>
+						<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Valor</b></font></td>
+					
+				</tr>
+
+				
+					<tr height="20">
+						<td align="center" class='xl26'>&nbsp;06-08-2016</td>
+						<td align="center" class='xl26'>&nbsp;08-08-2016</td>
+						<td><font align="left" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>A.S. PADRE CRUZ     LISBOA</font></td>
+						<td align="center"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>0000</font></td>
+						<td nowrap class='xl24' align="right">40,00</td>
+					  								
+							<td><font align="right" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>1</font></td>
+							<td nowrap class='xl24'>0,40</td>
+					
+					</tr>
+			
+					<tr height="20">
+						<td align="center" class='xl26'>&nbsp;04-08-2016</td>
+						<td align="center" class='xl26'>&nbsp;08-08-2016</td>
+						<td><font align="left" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>FSPRG.COM FLEXIBITS      COVENTRY</font></td>
+						<td align="center"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>0000</font></td>
+						<td nowrap class='xl24' align="right">32,51</td>
+					  								
+							<td><font align="right" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>1</font></td>
+							<td nowrap class='xl24'>0,33</td>
+					
+					</tr>
+			
+					<tr height="20">
+						<td align="center" class='xl26'>&nbsp;05-08-2016</td>
+						<td align="center" class='xl26'>&nbsp;08-08-2016</td>
+						<td><font align="left" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>ITUNES.COM/BILL          ITUNES.COM</font></td>
+						<td align="center"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>0000</font></td>
+						<td nowrap class='xl24' align="right">2,99</td>
+					  								
+							<td><font align="right" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>1</font></td>
+							<td nowrap class='xl24'>0,03</td>
+					
+					</tr>
+			
+					<tr height="20">
+						<td align="center" class='xl26'>&nbsp;05-08-2016</td>
+						<td align="center" class='xl26'>&nbsp;08-08-2016</td>
+						<td><font align="left" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>AMAZON.ES COMPRA         amazon.es/ayu</font></td>
+						<td align="center"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>0000</font></td>
+						<td nowrap class='xl24' align="right">146,88</td>
+					  								
+							<td><font align="right" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>1</font></td>
+							<td nowrap class='xl24'>1,47</td>
+					
+					</tr>
+			
+					<tr height="20">
+						<td align="center" class='xl26'>&nbsp;07-08-2016</td>
+						<td align="center" class='xl26'>&nbsp;08-08-2016</td>
+						<td><font align="left" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>Spotify P000A00AAA       Stockholm</font></td>
+						<td align="center"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>0000</font></td>
+						<td nowrap class='xl24' align="right">10,99</td>
+					  								
+							<td><font align="right" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>1</font></td>
+							<td nowrap class='xl24'>0,11</td>
+					
+					</tr>
+			
+					<tr height="20">
+						<td align="center" class='xl26'>&nbsp;14-08-2016</td>
+						<td align="center" class='xl26'>&nbsp;16-08-2016</td>
+						<td><font align="left" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>Amazon UK Retail         AMAZ  1,1658792</font></td>
+						<td align="center"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>0000</font></td>
+						<td nowrap class='xl24' align="right">22,21</td>
+					  								
+							<td><font align="right" style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>1</font></td>
+							<td nowrap class='xl24'>0,22</td>
+					
+					</tr>
+			
+					</table>
+				</td>
+			</tr>			
+			
+			<tr>
+				<td></td>
+			</tr>
+	        <tr>
+	            <td>
+                    <table cellPadding="0" cellSpacing="0" border="0">
+                    <tr>
+	<td nowrap><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
+		Nesta opção são apresentados os movimentos efectuados após a emissão do último Extracto.
+	</td>
+</tr>
+<tr>
+	<td nowrap><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
+		O 1º Titular da Conta Cartão visualiza todos os movimentos de todos os Cartões associados ao contrato de adesão (Conta Cartão). 
+	</td>
+</tr>
+<tr>
+	<td nowrap><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
+		Os Titulares adicionais apenas visualizam os movimentos efectuados com o Cartão de que são Titulares. 
+		</font>
+	</td>
+</tr>
+
+<tr>
+	<td>&nbsp;</td>
+</tr>
+
+<tr>
+	<td nowrap><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
+		Nota: Este ficheiro apenas contempla os registos apresentados na página da internet, a partir da qual foi efectuado 
+		o download do BPI Net.				
+		</font>
+	</td>
+</tr>
+
+                    </table>					
+                </td>
+            </tr>
+        
+			</table>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
