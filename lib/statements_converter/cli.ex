@@ -1,7 +1,8 @@
 defmodule StatementsConverter.CLI do
-  
+
   @default_files "*.csv"
 
+  alias StatementsConverter.QIF
   import StatementsConverter, only: [supported_formats: 0,
                                      supported_format?: 1]
 
@@ -76,7 +77,19 @@ defmodule StatementsConverter.CLI do
   def process({format, files}) do
     converter = StatementsConverter.get_converter(format)
     Path.wildcard(files)
-    |> Enum.map(&converter.parse/1)
+    |> Stream.map(&{&1, converter.parse(&1)})
+    |> Enum.each(&write_qif/1)
+  end
+
+  def write_qif({original_filename, transactions}) do
+    replace_ext = Regex.compile! "#{Path.extname(original_filename)}$"
+    new_file_name = String.replace(original_filename, replace_ext, ".qif")
+    file = File.open!(new_file_name, [:write])
+    try do
+      QIF.write transactions, file
+    after
+      File.close(file)
+    end
   end
 
   defp print_supported_formats do
