@@ -71,7 +71,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
     data = File.read!(file)
     cond do
       String.valid?(data) -> data
-      true -> :iconv.convert("cp1252", "utf-8", data)
+      true -> Codepagex.to_string!(data, "VENDORS/MICSFT/WINDOWS/CP1252")
     end
   end
 

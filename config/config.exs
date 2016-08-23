@@ -28,3 +28,8 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
+config :codepagex, :encodings, [
+  :ascii,           # default
+  ~r[iso8859]i,     # default
+  "VENDORS/MICSFT/WINDOWS/CP1252",   # required by bancobpi converter
+]

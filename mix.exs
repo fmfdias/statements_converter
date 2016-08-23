@@ -14,7 +14,7 @@ defmodule StatementsConverter.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger,:iconv,:timex]]
+    [applications: [:logger,:timex]]
   end
 
   # Dependencies can be Hex packages:
@@ -29,8 +29,8 @@ defmodule StatementsConverter.Mixfile do
   defp deps do
     [
       {:floki, "~> 0.10.0"},
-      {:iconv, "~> 1.0"},
-      {:timex, "~> 3.0"}
+      {:timex, "~> 3.0"},
+      {:codepagex, "~> 0.1.3"}
     ]
   end
 end
