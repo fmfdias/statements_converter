@@ -1,17 +1,20 @@
 defmodule StatementsConverter.Converters.BancoBPI do
 
+  require Logger
   alias StatementsConverter.Statement
   alias StatementsConverter.Statement.Transaction
 
   import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1]
 
   def parse(file) do
+    Logger.debug fn -> "Processing file #{file}" end
     fetch_data(file)
     |> parse_data
   end
 
   defp parse_data(data) do
     file_type = find_file_type(data)
+    Logger.debug fn -> "The being processed was recognized as #{file_type}" end
     parse_data(data, file_type)
   end
 
@@ -21,6 +24,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
     |> Enum.at(1)
     |> Floki.find("tr"))
     
+    Logger.debug fn -> "Going to processe #{length(rows)} entries" end
     %Statement{type: "CCard", transactions: Enum.map(rows, &parse_row(&1, :card))}
   end
 
@@ -30,6 +34,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
     |> Enum.at(1)
     |> Floki.find("tr"))
 
+    Logger.debug fn -> "Going to processe #{length(rows)} entries" end
     %Statement{type: "Bank", transactions: Enum.map(rows, &parse_row(&1, :bank))}
   end
 
@@ -44,6 +49,16 @@ defmodule StatementsConverter.Converters.BancoBPI do
     amount = parse_amount(amount_cell)
     payee = get_payee_from_memo(memo)
 
+    Logger.debug fn -> 
+      """
+      Transaction info:
+        date: #{date}
+        memo: #{memo}
+        amount: #{amount * -1}
+        payee: #{payee}
+      """
+
+    end
     %Transaction{
       date: date,
       memo: memo,
@@ -63,6 +78,16 @@ defmodule StatementsConverter.Converters.BancoBPI do
     amount = parse_amount(amount_cell)
     payee = get_payee_from_memo(memo)
 
+    Logger.debug fn ->
+      """
+      Transaction info:
+        date: #{date}
+        memo: #{memo}
+        amount: #{amount}
+        payee: #{payee}
+      """
+    end
+
     %Transaction{
       date: date,
       memo: memo,
@@ -75,7 +100,8 @@ defmodule StatementsConverter.Converters.BancoBPI do
     data = File.read!(file)
     cond do
       String.valid?(data) -> data
-      true -> Codepagex.to_string!(data, "VENDORS/MICSFT/WINDOWS/CP1252")
+      true -> Logger.debug "File data is not a valid string. Changing encoding!"
+        Codepagex.to_string!(data, "VENDORS/MICSFT/WINDOWS/CP1252")
     end
   end
 
