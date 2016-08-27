@@ -35,8 +35,9 @@ defmodule StatementsConverter.Converters.BancoBPI do
 
   defp parse_row(row, :card) do
     [tr_date_cell,mov_date_cell,memo_cell,_,amount_cell|_] = Floki.find(row, "td")
-    
+
     date = ([parse_date(tr_date_cell),parse_date(mov_date_cell)]
+    |> Enum.filter_map(&(&1), &(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
     memo = parse_memo(memo_cell)
@@ -52,9 +53,12 @@ defmodule StatementsConverter.Converters.BancoBPI do
   end
 
   defp parse_row(row, :bank) do
-    [tr_date_cell,_,memo_cell,amount_cell|_] = Floki.find(row, "td")
-    
-    date = parse_date(tr_date_cell) |> Timex.to_date
+    [tr_date_cell,mov_date_cell,memo_cell,amount_cell|_] = Floki.find(row, "td")
+
+    date = ([parse_date(tr_date_cell),parse_date(mov_date_cell)]
+    |> Enum.filter_map(&(&1), &(&1))
+    |> Enum.min_by(&Timex.to_unix/1)
+    |> Timex.to_date)
     memo = parse_memo(memo_cell)
     amount = parse_amount(amount_cell)
     payee = get_payee_from_memo(memo)
@@ -92,7 +96,13 @@ defmodule StatementsConverter.Converters.BancoBPI do
     date_cell
     |> Floki.text
     |> String.trim
-    |> Timex.parse!("{0D}-{0M}-{YYYY}")
+    |> parse_text_date
+  end
+
+  defp parse_text_date(""), do: nil
+
+  defp parse_text_date(text) do
+    Timex.parse!(text, "{0D}-{0M}-{YYYY}")
   end
 
   defp parse_memo(memo_cell) do
