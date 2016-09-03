@@ -30,7 +30,8 @@ defmodule StatementsConverter.Mixfile do
     [
       {:floki, "~> 0.10.0"},
       {:timex, "~> 3.0"},
-      {:codepagex, "~> 0.1.3"}
+      {:codepagex, "~> 0.1.3"},
+      {:csv, "~> 1.4.2"}
     ]
   end
 end
