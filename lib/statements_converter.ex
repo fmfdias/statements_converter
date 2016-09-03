@@ -1,5 +1,8 @@
 defmodule StatementsConverter do
-  @supported_formats [bancobpi: StatementsConverter.Converters.BancoBPI]
+  @supported_formats [
+    bancobpi: StatementsConverter.Converters.BancoBPI,
+    milleniumbcp: StatementsConverter.Converters.MilleniumBCP
+  ]
 
   @doc """
   Returns the list of supported formats
