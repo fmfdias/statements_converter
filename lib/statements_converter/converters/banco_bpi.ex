@@ -40,7 +40,15 @@ defmodule StatementsConverter.Converters.BancoBPI do
 
   defp parse_row(row, :card) do
     [tr_date_cell,mov_date_cell,memo_cell,_,amount_cell|_] = Floki.find(row, "td")
-
+    Logger.debug fn -> 
+      """
+      Transaction info:
+        tr_date_cell: #{inspect tr_date_cell}
+        mov_date_cell: #{inspect mov_date_cell}
+        memo_cell: #{inspect memo_cell}
+        amount_cell: #{inspect amount_cell}
+      """
+    end
     date = ([parse_date(tr_date_cell),parse_date(mov_date_cell)]
     |> Enum.filter_map(&(&1), &(&1))
     |> Enum.min_by(&Timex.to_unix/1)
