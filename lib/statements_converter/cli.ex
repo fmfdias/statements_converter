@@ -97,9 +97,7 @@ defmodule StatementsConverter.CLI do
     List of valid formats:
     """
     supported_formats
-    |> Enum.map(fn {f,_} -> IO.puts Atom.to_string(f) end)
-    |> Enum.join(", ")
-    |> IO.puts
+    |> Enum.each(fn {f,_} -> IO.puts Atom.to_string(f) end)
   end
 
 end
