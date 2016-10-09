@@ -128,7 +128,9 @@ defmodule StatementsConverter.Converters.BancoBPI do
   defp parse_text_date(""), do: nil
 
   defp parse_text_date(text) do
-    Timex.parse!(text, "{0D}-{0M}-{YYYY}")
+    text
+    |> String.replace("/","-")
+    |> Timex.parse!("{0D}-{0M}-{YYYY}")
   end
 
   defp parse_memo(memo_cell) do
