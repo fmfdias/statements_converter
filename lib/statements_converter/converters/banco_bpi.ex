@@ -144,6 +144,7 @@ defmodule StatementsConverter.Converters.BancoBPI do
     amount_cell
     |> Floki.text
     |> String.trim
+    |> String.replace(".","")
     |> String.to_float
   end
 end
