@@ -60,7 +60,10 @@ defmodule BancoBPITest do
           payee: "COFFE SHOP BARREIRO"},
         %Transaction{amount: 7.6, date: ~D[2016-08-17],
           memo: "17/08 COMPRA ELEC 1234567/07 BUY THINGS LISBOA",
-          payee: "BUY THINGS LISBOA"}
+          payee: "BUY THINGS LISBOA"},
+        %Transaction{amount: -10.0, date: ~D[2016-08-16],
+          memo: "TRANSF. MB WAY ELEC 0000000/00 P/TLM *****0000",
+          payee: "*****0000"}
       ]
     }
 

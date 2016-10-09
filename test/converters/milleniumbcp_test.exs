@@ -54,7 +54,10 @@ defmodule MilleniumBCPTest do
           payee: "NETPAYSTUFF 19.68USD TC 0.9090447"},
         %Transaction{amount: -0.99, date: ~D[2016-08-01],
           memo: "MMD0000 NET MMD ITUN 0.99EUR",
-          payee: "ITUN 0.99EUR"}
+          payee: "ITUN 0.99EUR"},
+        %Transaction{amount: 50.0, date: ~D[2016-08-01],
+          memo: "TRF MB WAY DE SOMEONE",
+          payee: "SOMEONE"}
       ]
     }
     assert result == expected_result
