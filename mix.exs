@@ -5,6 +5,7 @@ defmodule StatementsConverter.Mixfile do
     [app: :statements_converter,
      version: "0.1.0",
      elixir: "~> 1.3",
+     escript: escript_config,
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
@@ -30,8 +31,14 @@ defmodule StatementsConverter.Mixfile do
     [
       {:floki, "~> 0.10.0"},
       {:timex, "~> 3.0"},
+      # Workaround to issue when using escript described here: https://github.com/bitwalker/timex/issues/86
+      {:tzdata, "~> 0.1.8", override: true},
       {:codepagex, "~> 0.1.3"},
       {:csv, "~> 1.4.2"}
     ]
+  end
+
+  defp escript_config do
+    [main_module: StatementsConverter.CLI]
   end
 end

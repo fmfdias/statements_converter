@@ -11,7 +11,7 @@ defmodule StatementsConverter.CLI do
 ​  to the correct parsers and converters
   """
 
-  def run(argv) do
+  def main(argv) do
     argv
     |> parse_args
     |> process
