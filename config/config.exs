@@ -21,6 +21,12 @@ use Mix.Config
 #     config :logger, level: :info
 #
 
+config :codepagex, :encodings, [
+  :ascii,           # default
+  ~r[iso8859]i,     # default
+  "VENDORS/MICSFT/WINDOWS/CP1252",   # required by bancobpi converter
+]
+
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment
 # by uncommenting the line below and defining dev.exs, test.exs and such.
@@ -28,8 +34,5 @@ use Mix.Config
 # here (which is why it is important to import them last).
 #
 #     import_config "#{Mix.env}.exs"
-config :codepagex, :encodings, [
-  :ascii,           # default
-  ~r[iso8859]i,     # default
-  "VENDORS/MICSFT/WINDOWS/CP1252",   # required by bancobpi converter
-]
+
+import_config "#{Mix.env}.exs"
