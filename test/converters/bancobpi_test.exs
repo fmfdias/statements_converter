@@ -7,8 +7,68 @@ defmodule BancoBPITest do
 
   import StatementsConverter.Converters.BancoBPI, only: [parse: 1]
 
-  test "correctly parses a card extract file" do
+  test "correctly parses a card extract file with the old format" do
     result = parse("test/fixtures/cartaobpi.xls")
+
+    expected_result = %Statement{
+      type: "CCard",
+      transactions: [
+        %Transaction{amount: -40.0, date: ~D[2016-08-06],
+          memo: "A.S. PADRE CRUZ LISBOA",
+          payee: "A.S. PADRE CRUZ LISBOA"},
+        %Transaction{amount: -32.51, date: ~D[2016-08-04],
+          memo: "FSPRG.COM FLEXIBITS COVENTRY",
+          payee: "FSPRG.COM FLEXIBITS COVENTRY"},
+        %Transaction{amount: -2.99, date: ~D[2016-08-05],
+          memo: "ITUNES.COM/BILL ITUNES.COM",
+          payee: "ITUNES.COM/BILL ITUNES.COM"},
+        %Transaction{amount: -146.88, date: ~D[2016-08-05],
+          memo: "AMAZON.ES COMPRA amazon.es/ayu",
+          payee: "AMAZON.ES COMPRA amazon.es/ayu"},
+        %Transaction{amount: -10.99, date: ~D[2016-08-07],
+          memo: "Spotify P000A00AAA Stockholm",
+          payee: "Spotify P000A00AAA Stockholm"},
+        %Transaction{amount: -22.21, date: ~D[2016-08-14],
+          memo: "Amazon UK Retail AMAZ 1,1658792",
+          payee: "Amazon UK Retail AMAZ 1,1658792"}
+      ]
+    }
+
+    assert result == expected_result
+  end
+
+  test "correctly parses a card extract file with the new format" do
+    result = parse("test/fixtures/cartaobpi_nao_extractados.xlsx")
+
+    expected_result = %Statement{
+      type: "CCard",
+      transactions: [
+        %Transaction{amount: -40.0, date: ~D[2016-08-06],
+          memo: "A.S. PADRE CRUZ LISBOA",
+          payee: "A.S. PADRE CRUZ LISBOA"},
+        %Transaction{amount: -32.51, date: ~D[2016-08-04],
+          memo: "FSPRG.COM FLEXIBITS COVENTRY",
+          payee: "FSPRG.COM FLEXIBITS COVENTRY"},
+        %Transaction{amount: -2.99, date: ~D[2016-08-05],
+          memo: "ITUNES.COM/BILL ITUNES.COM",
+          payee: "ITUNES.COM/BILL ITUNES.COM"},
+        %Transaction{amount: -146.88, date: ~D[2016-08-05],
+          memo: "AMAZON.ES COMPRA amazon.es/ayu",
+          payee: "AMAZON.ES COMPRA amazon.es/ayu"},
+        %Transaction{amount: -10.99, date: ~D[2016-08-07],
+          memo: "Spotify P000A00AAA Stockholm",
+          payee: "Spotify P000A00AAA Stockholm"},
+        %Transaction{amount: -22.21, date: ~D[2016-08-14],
+          memo: "Amazon UK Retail AMAZ 1,1658792",
+          payee: "Amazon UK Retail AMAZ 1,1658792"}
+      ]
+    }
+
+    assert result == expected_result
+  end
+
+  test "correctly parses a card (full) extract file with the new format" do
+    result = parse("test/fixtures/cartaobpi_extractados.xlsx")
 
     expected_result = %Statement{
       type: "CCard",
