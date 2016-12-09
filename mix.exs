@@ -34,7 +34,8 @@ defmodule StatementsConverter.Mixfile do
       # Workaround to issue when using escript described here: https://github.com/bitwalker/timex/issues/86
       {:tzdata, "~> 0.1.8", override: true},
       {:codepagex, "~> 0.1.3"},
-      {:csv, "~> 1.4.2"}
+      {:csv, "~> 1.4.2"},
+      {:xlsxir, "~> 1.3.6"}
     ]
   end
 
