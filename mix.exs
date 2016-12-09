@@ -3,7 +3,7 @@ defmodule StatementsConverter.Mixfile do
 
   def project do
     [app: :statements_converter,
-     version: "0.1.0",
+     version: "0.1.1",
      elixir: "~> 1.3",
      escript: escript_config,
      build_embedded: Mix.env == :prod,
