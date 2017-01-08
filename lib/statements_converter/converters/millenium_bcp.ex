@@ -23,7 +23,7 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
 
   defp clear_extras(stream) do
     stream
-    |> Stream.drop_while(&(&1 != ";\n"))
+    |> Stream.drop_while(&(&1 != ";\n" && &1 != "\n"))
     |> Stream.drop(1)
   end
 
