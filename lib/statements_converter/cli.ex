@@ -66,12 +66,12 @@ defmodule StatementsConverter.CLI do
     IO.puts """
     usage: statements_converter -f <file format> [files | #{@default_files}]
     """
-    print_supported_formats
+    print_supported_formats()
   end
 
   def process(:invalid_format) do
     IO.puts "Invalid format specified"
-    print_supported_formats
+    print_supported_formats()
   end
 
   def process({format, files}) do
@@ -96,7 +96,7 @@ defmodule StatementsConverter.CLI do
     IO.write """
     List of valid formats:
     """
-    supported_formats
+    supported_formats()
     |> Enum.each(fn {f,_} -> IO.puts Atom.to_string(f) end)
   end
 

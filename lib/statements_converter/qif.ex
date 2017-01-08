@@ -38,12 +38,12 @@ defmodule StatementsConverter.QIF do
   def write_field(:amount, %Transaction{amount: nil}, _io, _opt), do: nil
 
   def write_field(:amount, %Transaction{amount: amount}, io, _opt) when is_float(amount) do
-    IO.puts(io, "T#{Float.to_string(amount, decimals: 2)}")
+    IO.puts(io, "T#{:erlang.float_to_binary(amount, decimals: 2)}")
   end
 
   def write_field(:amount, %Transaction{amount: amount}, io, _opt) when is_integer(amount) do
     f_amount = amount/1.0
-    IO.puts(io, "T#{Float.to_string(f_amount, decimals: 2)}")
+    IO.puts(io, "T#{:erlang.float_to_binary(f_amount, decimals: 2)}")
   end
 
   def write_field(:payee, %Transaction{payee: nil}, _io, _opt), do: nil

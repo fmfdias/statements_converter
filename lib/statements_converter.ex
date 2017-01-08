@@ -28,7 +28,7 @@ defmodule StatementsConverter do
 
   """
   def supported_format?(format) when is_atom(format) do
-    Keyword.has_key?(supported_formats, format)
+    Keyword.has_key?(supported_formats(), format)
   end
 
   def supported_format?(format) when is_bitstring(format) do
@@ -52,7 +52,7 @@ defmodule StatementsConverter do
 
   """
   def get_converter(format) when is_atom(format) do
-    Keyword.get(supported_formats, format)
+    Keyword.get(supported_formats(), format)
   end
 
   def get_converter(format) when is_bitstring(format) do
