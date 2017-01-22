@@ -5,7 +5,7 @@ defmodule StatementsConverter.Mixfile do
     [app: :statements_converter,
      version: "0.1.2",
      elixir: "~> 1.3",
-     escript: escript_config,
+     escript: escript_config(),
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
      deps: deps()]
