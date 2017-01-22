@@ -29,5 +29,5 @@ $> MIX_ENV=prod mix deps.get && mix escript.build && mix escript.install
 
 * [Erlang](http://elixir-lang.org/install.html#installing-erlang)
 
-Download the latest [release](/fmfdias/statements_converter/releases).
+Download the latest [release](https://github.com/fmfdias/statements_converter/releases/latest).
 After it, paste it to a place in the $PATH environment variable. (e.g: /usr/opt/bin)
