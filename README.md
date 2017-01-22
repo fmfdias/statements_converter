@@ -31,3 +31,14 @@ $> MIX_ENV=prod mix deps.get && mix escript.build && mix escript.install
 
 Download the latest [release](https://github.com/fmfdias/statements_converter/releases/latest).
 After it, paste it to a place in the $PATH environment variable. (e.g: /usr/opt/bin)
+
+### MIX
+
+#### Prerequisites
+
+* [Elixir >= 1.4](http://elixir-lang.org/install.html)
+* [Erlang](http://elixir-lang.org/install.html#installing-erlang)
+
+```
+$> mix escript.install https://github.com/fmfdias/statements_converter/releases/download/0.1.3/statements_converter
+```
