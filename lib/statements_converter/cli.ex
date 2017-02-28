@@ -30,9 +30,9 @@ defmodule StatementsConverter.CLI do
   """
 
   def parse_args(argv) do
-    parse = OptionParser.parse(argv, switches: [help: :boolean, 
+    parse = OptionParser.parse(argv, switches: [help: :boolean,
                                                 format: :string],
-                                     aliases: [h: :help, 
+                                     aliases: [h: :help,
                                              f: :format]
                               )
     parse_options(parse)
@@ -59,7 +59,7 @@ defmodule StatementsConverter.CLI do
 
   It prints the help info when the param value is :help
   It prints the help info when the param value is :invalid_format
-  It processes the files in the specified format when param is a tuple 
+  It processes the files in the specified format when param is a tuple
   with the format and the files
   """
   def process(:help) do

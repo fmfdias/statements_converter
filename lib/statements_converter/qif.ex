@@ -70,5 +70,5 @@ defmodule StatementsConverter.QIF do
     IO.puts(io, "!Type:#{type}")
   end
 
-  
+
 end

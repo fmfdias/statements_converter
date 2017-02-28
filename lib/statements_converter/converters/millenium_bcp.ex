@@ -12,7 +12,7 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
     {:ok, string_io} = StringIO.open(data)
     try do
       string_io
-      |> IO.stream(:line) 
+      |> IO.stream(:line)
       |> clear_extras
       |> parse_data
     after

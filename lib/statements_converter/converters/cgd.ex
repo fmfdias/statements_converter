@@ -12,7 +12,7 @@ defmodule StatementsConverter.Converters.CGD do
     {:ok, string_io} = StringIO.open(data)
     try do
       string_io
-      |> IO.stream(:line) 
+      |> IO.stream(:line)
       |> clear_extras
       |> parse_data
     after
@@ -28,7 +28,7 @@ defmodule StatementsConverter.Converters.CGD do
 
   defp parse_data(stream) do
     Logger.debug fn -> "Parsing data from stream #{inspect stream}" end
-    
+
     transactions = (
       stream
       |> Stream.reject(&(length(String.split(&1, "\t", parts: 2)) == 1))

@@ -38,24 +38,24 @@ mso-displayed-thousand-separator:"\.";}
 	mso-protection:locked visible;
 	mso-style-name:Normal;
 	mso-style-id:0;}
-	
+
 .xl24
 	{mso-style-parent:style0;
-	color:#666666; 
+	color:#666666;
 	font-size:10px;
 	font-family:Verdana, sans-serif;
 	mso-font-charset:0;
 	mso-number-format:Standard;
 	text-align:right;}
-	
+
 .xl26
 	{mso-style-parent:style0;
 	mso-number-format:"Short Date";
 	text-align:center;
-	FONT-SIZE:10px; 
-	COLOR:#666666; 
+	FONT-SIZE:10px;
+	COLOR:#666666;
 	FONT-FAMILY:Verdana;
-	}	
+	}
 -->
 </style>
 </head>
@@ -65,61 +65,61 @@ mso-displayed-thousand-separator:"\.";}
 		<td><p align='left' style='FONT-SIZE:25px; COLOR:#FF6600; FONT-FAMILY:Verdana'><b>BPI Net</b></p></td>
 	</tr>
 
-	<tr> 
+	<tr>
 	   <td>&nbsp;</td>
-	</tr>  
+	</tr>
 
-	<tr> 
+	<tr>
 	   <td><p align='left' style='FONT-SIZE:15px; COLOR:#000066; FONT-FAMILY:Verdana'><b>EXTRACTO MOVIMENTOS<b></p></td>
-	</tr>  
+	</tr>
 
-	<tr> 
+	<tr>
 	   <td>&nbsp;</td>
-	</tr>  
-	
-	<tr> 
+	</tr>
+
+	<tr>
 		<td>
 			<table border="0" cellspacing="0" cellpadding="0">
-						
+
 
 				<tr>
 					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Nome (Titular)</b></font></td>
 					<td>&nbsp;</td>
-					<td><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>ACCOUNT OWNER</b></font></td>	
+					<td><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>ACCOUNT OWNER</b></font></td>
 				</tr>
-			
+
 				<tr>
 					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Conta e Moeda</b></font></td>
 					<td>&nbsp;</td>
-					<td nowrap><p align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>0-0000000.000.001&nbsp;(EUR) - Banco BPI SA</b></font></td>	
+					<td nowrap><p align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>0-0000000.000.001&nbsp;(EUR) - Banco BPI SA</b></font></td>
 				</tr>
-			
+
 				<tr>
 					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Data/Hora</b></font></td>
 					<td>&nbsp;</td>
-					<td><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>20-08-2016&nbsp;11:30Horas</b></font></td>	
+					<td><font align='left' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>20-08-2016&nbsp;11:30Horas</b></font></td>
 				</tr>
 
 				<tr>
 					<td colspan="3"></td>
 				</tr>
-				
+
 				<tr>
 					<td colspan="3"></td>
 				</tr>
 
 				<tr>
-					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Saldo Disponível:</b></font></td>
+					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Saldo Disponï¿½vel:</b></font></td>
 					<td>&nbsp;</td>
-					<td class='xl24'><b>1.000,00&nbsp;EUR</b></td>	
+					<td class='xl24'><b>1.000,00&nbsp;EUR</b></td>
 				</tr>
-					
+
 				<tr>
-					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Saldo Contabilístico:</b></font></td>
+					<td><font align='left' style='FONT-SIZE:10px; COLOR:#000066; FONT-FAMILY:Verdana'><b>Saldo Contabilï¿½stico:</b></font></td>
 					<td>&nbsp;</td>
-					<td class='xl24'><b>1.000,00&nbsp;EUR</b></td>	
+					<td class='xl24'><b>1.000,00&nbsp;EUR</b></td>
 				</tr>
-						
+
 			</table>
 		</td>
 	</tr>
@@ -131,100 +131,100 @@ mso-displayed-thousand-separator:"\.";}
 	<tr>
 		<td>&nbsp;</td>
 	</tr>
-	<tr>	
+	<tr>
 		<td>
 			<table border="1" cellspacing="0" cellpadding="0">
 				<tr align="center">
 					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Data Mov.</b></font></td>
 					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Data Valor</b></font></td>
-					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Descrição do Movimento</b></font></td>
+					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Descriï¿½ï¿½o do Movimento</b></font></td>
 					<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Valor emEUR</b></font></td>
-																	
+
 						<td><font align='center' style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'><b>Saldo emEUR</b></font></td>
-					
-					
+
+
 				</tr>
-				
+
 							<tr valign="top">
 								<td class='xl26'>19-08-2016</td>
 								<td class='xl26'>
-									
+
 										&nbsp;
-									
+
 								</td>
 								<td nowrap align="left"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
 									19/08 COMPRA ELEC 1234567/10 THAT SUPERMARKET          1700-036 LI
 								</font></td>
 								<td class='xl24'>-4,55</td>
-																			
+
 									<td class='xl24'>1.000,00</td>
-								
+
 							</tr>
-	
+
 							<tr valign="top">
 								<td class='xl26'>18-08-2016</td>
 								<td class='xl26'>
-									
+
 										&nbsp;
-									
+
 								</td>
 								<td nowrap align="left"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
 									18/08 COMPRA ELEC 1234567/09 PLACE TO EAT  LISBOA
 								</font></td>
 								<td class='xl24'>-6,55</td>
-																			
+
 									<td class='xl24'>1.004,55</td>
-								
+
 							</tr>
-	
+
 							<tr valign="top">
 								<td class='xl26'>17-08-2016</td>
 								<td class='xl26'>
-									
+
 										&nbsp;
-									
+
 								</td>
 								<td nowrap align="left"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
 									17/08 COMPRA ELEC 1234567/08 OTHER PLACE             LISBOA
 								</font></td>
 								<td class='xl24'>-7,50</td>
-																			
+
 									<td class='xl24'>1.011,1</td>
-								
+
 							</tr>
-	
+
 							<tr valign="top">
 								<td class='xl26'>17-08-2016</td>
 								<td class='xl26'>
-									
+
 										&nbsp;
-									
+
 								</td>
 								<td nowrap align="left"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
 									17/08 COMPRA ELEC 1234567/07 BIO STUFF            LISBOA
 								</font></td>
 								<td class='xl24'>-3,51</td>
-																			
+
 									<td class='xl24'>1.018,6</td>
-								
+
 							</tr>
-	
+
 							<tr valign="top">
 								<td class='xl26'>17-08-2016</td>
 								<td class='xl26'>
-									
+
 										&nbsp;
-									
+
 								</td>
 								<td nowrap align="left"><font style='FONT-SIZE:10px; COLOR:#666666; FONT-FAMILY:Verdana'>
 									17/08 COMPRA ELEC 1234567/07 COFFE SHOP            BARREIRO
 								</font></td>
 								<td class='xl24'>-2,13</td>
-																			
+
 									<td class='xl24'>1.022,11</td>
-								
+
 							</tr>
-	
+
 							<tr valign="top">
 								<td class='xl26'>20-08-2016</td>
 								<td class='xl26'>
@@ -234,9 +234,9 @@ mso-displayed-thousand-separator:"\.";}
 									17/08 COMPRA ELEC 1234567/07 BUY THINGS            LISBOA
 								</font></td>
 								<td class='xl24'>7,60</td>
-																			
+
 									<td class='xl24'>1.024,24</td>
-								
+
 							</tr>
 							<tr valign="top">
 								<td class='xl26'>19-08-2016</td>
@@ -247,11 +247,11 @@ mso-displayed-thousand-separator:"\.";}
 									TRANSF. MB WAY ELEC 0000000/00 P/TLM *****0000
 								</font></td>
 								<td class='xl24'>-10,00</td>
-																			
+
 									<td class='xl24'>1.016,64</td>
-								
+
 							</tr>
-	
+
 			</td>
 			</table>
 		</td>
@@ -264,8 +264,8 @@ mso-displayed-thousand-separator:"\.";}
 	<tr>
 	    <td>
             <table width="100%" cellPadding="0" cellSpacing="0" border="0">
-            
-            </table>					
+
+            </table>
         </td>
     </tr>
 

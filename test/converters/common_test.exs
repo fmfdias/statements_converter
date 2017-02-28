@@ -49,5 +49,5 @@ defmodule CommonTest do
     |> Enum.each(fn st -> assert get_payee_from_memo(st) == st end)
   end
 
-  
+
 end

@@ -20,10 +20,10 @@ defmodule StatementsConverter do
 
     iex> StatementsConverter.supported_format?(:bancobpi)
     true
-    
+
     iex> StatementsConverter.supported_format?("bancobpi")
     true
-    
+
     iex> StatementsConverter.supported_format?(:notsupported)
     false
 
@@ -44,10 +44,10 @@ defmodule StatementsConverter do
 
     iex> StatementsConverter.get_converter(:bancobpi)
     StatementsConverter.Converters.BancoBPI
-    
+
     iex> StatementsConverter.get_converter("bancobpi")
     StatementsConverter.Converters.BancoBPI
-    
+
     iex> StatementsConverter.get_converter(:notsupported)
     nil
 

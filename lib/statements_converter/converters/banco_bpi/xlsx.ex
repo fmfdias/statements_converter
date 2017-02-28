@@ -15,7 +15,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLSX do
   def find_first_starting_position([]), do: []
   def find_first_starting_position([["Data Transacção" | _] | values]), do: values
   def find_first_starting_position([_ | values]), do: find_first_starting_position(values)
-  
+
   def clear_data([], values), do: Enum.reverse(values)
   def clear_data([[nil|_]|_], values), do: Enum.reverse(values)
   def clear_data([tr|rem], values), do: clear_data(rem,[tr|values])
@@ -31,7 +31,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLSX do
   end
 
   defp parse_row([tr_date_cell,mov_date_cell,memo_cell,_,amount_cell|_], :card) do
-    Logger.debug fn -> 
+    Logger.debug fn ->
       """
       Transaction info:
         tr_date_cell: #{inspect tr_date_cell}
@@ -46,7 +46,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLSX do
     memo = parse_memo(memo_cell)
     payee = get_payee_from_memo(memo)
 
-    Logger.debug fn -> 
+    Logger.debug fn ->
       """
       Transaction info:
         date: #{date}

@@ -73,8 +73,8 @@ defmodule QIFTest do
         payee: nil}
       ]
       write(
-        %Statement{transactions: transactions}, 
-        io, 
+        %Statement{transactions: transactions},
+        io,
         [date_format: "{0M}-{0D}-{YYYY}"]
       )
       result = StringIO.flush(io)

@@ -23,7 +23,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
     |> Floki.find("body > table table")
     |> Enum.at(1)
     |> Floki.find("tr"))
-    
+
     Logger.debug fn -> "Going to processe #{length(rows)} entries" end
     %Statement{type: "CCard", transactions: Enum.map(rows, &parse_row(&1, :card))}
   end
@@ -40,7 +40,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
 
   defp parse_row(row, :card) do
     [tr_date_cell,mov_date_cell,memo_cell,_,amount_cell|_] = Floki.find(row, "td")
-    Logger.debug fn -> 
+    Logger.debug fn ->
       """
       Transaction info:
         tr_date_cell: #{inspect tr_date_cell}
@@ -57,7 +57,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
     amount = parse_amount(amount_cell)
     payee = get_payee_from_memo(memo)
 
-    Logger.debug fn -> 
+    Logger.debug fn ->
       """
       Transaction info:
         date: #{date}
@@ -122,7 +122,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
     |> Floki.find("td")
     |> Enum.at(0)
     |> Floki.text)
-    
+
     if type_id == "Cartão", do: :card, else: :bank
   end
 
