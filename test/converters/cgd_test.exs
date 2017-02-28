@@ -13,6 +13,10 @@ defmodule CGDTest do
     expected_result = %Statement{
       type: "Bank",
       transactions: [
+        %Transaction{amount: 10.0,
+          date: ~D[2017-01-09],
+          memo: "TRF P2P 910xxx000",
+          payee: "910xxx000"},
         %Transaction{amount: -6.1,
           date: ~D[2017-01-06],
           memo: "BX VALOR 03 TRANSACCO",

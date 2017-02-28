@@ -19,6 +19,7 @@ defmodule StatementsConverter.Converters.Common do
     |> String.replace(~r/^TRF\sMB\sWAY\sP\/\s/, "")
     |> String.replace(~r/^TRANSF\.\sMB\sWAY\s(ELEC\s\d{7}\/\d{2}\s)?P\/TLM\s+/, "")
     |> String.replace(~r/^TRF\.\sP\/O\s*/, "")
+    |> String.replace(~r/^TRF\sP2P\s*/, "")
     |> String.replace(~r/^TRF\sINT\s*/, "")
     |> String.replace(~r/^TRF\s*/, "")
     |> String.replace(~r/\s*$/, "")
