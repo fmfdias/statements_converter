@@ -35,7 +35,7 @@ defmodule StatementsConverter.Mixfile do
       {:tzdata, "~> 0.1.8", override: true},
       {:codepagex, "~> 0.1.3"},
       {:csv, "~> 1.4.2"},
-      {:xlsxir, "~> 1.3.6"}
+      {:xlsxir, "~> 1.5.1"}
     ]
   end
 
