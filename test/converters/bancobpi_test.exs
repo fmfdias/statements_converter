@@ -97,8 +97,41 @@ defmodule BancoBPITest do
     assert result == expected_result
   end
 
-  test "correctly parses a bank extract file" do
+  test "correctly parses a bank extract file with the old format" do
     result = parse("test/fixtures/bancobpi.xls")
+
+    expected_result = %Statement{
+      type: "Bank",
+      transactions: [
+        %Transaction{amount: -4.55, date: ~D[2016-08-19],
+          memo: "19/08 COMPRA ELEC 1234567/10 THAT SUPERMARKET 1700-036 LI",
+          payee: "THAT SUPERMARKET 1700-036 LI"},
+        %Transaction{amount: -6.55, date: ~D[2016-08-18],
+          memo: "18/08 COMPRA ELEC 1234567/09 PLACE TO EAT LISBOA",
+          payee: "PLACE TO EAT LISBOA"},
+        %Transaction{amount: -7.5, date: ~D[2016-08-17],
+          memo: "17/08 COMPRA ELEC 1234567/08 OTHER PLACE LISBOA",
+          payee: "OTHER PLACE LISBOA"},
+        %Transaction{amount: -3.51, date: ~D[2016-08-17],
+          memo: "17/08 COMPRA ELEC 1234567/07 BIO STUFF LISBOA",
+          payee: "BIO STUFF LISBOA"},
+        %Transaction{amount: -2.13, date: ~D[2016-08-17],
+          memo: "17/08 COMPRA ELEC 1234567/07 COFFE SHOP BARREIRO",
+          payee: "COFFE SHOP BARREIRO"},
+        %Transaction{amount: 7.6, date: ~D[2016-08-17],
+          memo: "17/08 COMPRA ELEC 1234567/07 BUY THINGS LISBOA",
+          payee: "BUY THINGS LISBOA"},
+        %Transaction{amount: -10.0, date: ~D[2016-08-16],
+          memo: "TRANSF. MB WAY ELEC 0000000/00 P/TLM *****0000",
+          payee: "*****0000"}
+      ]
+    }
+
+    assert result == expected_result
+  end
+
+  test "correctly parses a bank extract file with the new format" do
+    result = parse("test/fixtures/bancobpi.xlsx")
 
     expected_result = %Statement{
       type: "Bank",
