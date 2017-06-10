@@ -4,7 +4,7 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
   alias StatementsConverter.Statement
   alias StatementsConverter.Statement.Transaction
 
-  import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1]
+  import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1, parse_pt_date: 1]
 
   def parse(file) do
     Logger.debug fn -> "Processing file #{file}" end
@@ -42,7 +42,7 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
       "Data valor" => value_date,
       "Descrição" => memo,
       "Montante" => value }) do
-    date = ([parse_date(launch_date),parse_date(value_date)]
+    date = ([parse_pt_date(launch_date),parse_pt_date(value_date)]
     |> Enum.filter_map(&(&1), &(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
@@ -75,17 +75,6 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
       true -> Logger.debug "File data is not a valid string. Changing encoding!"
         Codepagex.to_string!(data, "VENDORS/MICSFT/WINDOWS/CP1252")
     end
-  end
-
-  defp parse_date(date_text) do
-    date_text
-    |> parse_text_date
-  end
-
-  defp parse_text_date(""), do: nil
-
-  defp parse_text_date(text) do
-    Timex.parse!(text, "{0D}-{0M}-{YYYY}")
   end
 
   defp parse_memo(memo) do

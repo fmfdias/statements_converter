@@ -25,4 +25,14 @@ defmodule StatementsConverter.Converters.Common do
     |> String.replace(~r/\s*$/, "")
     |> String.replace(~r/\s+/, " ")
   end
+
+  def parse_pt_date(""), do: nil
+
+  def parse_pt_date(nil), do: nil
+
+  def parse_pt_date(text) do
+    text
+    |> String.replace("/","-")
+    |> Timex.parse!("{0D}-{0M}-{YYYY}")
+  end
 end

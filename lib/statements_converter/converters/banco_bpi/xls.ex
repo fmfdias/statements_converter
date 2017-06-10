@@ -4,7 +4,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
   alias StatementsConverter.Statement
   alias StatementsConverter.Statement.Transaction
 
-  import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1]
+  import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1, parse_pt_date: 1]
 
   def parse(file) do
     Logger.debug fn -> "Processing file #{file}" end
@@ -130,15 +130,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
     date_cell
     |> Floki.text
     |> String.trim
-    |> parse_text_date
-  end
-
-  defp parse_text_date(""), do: nil
-
-  defp parse_text_date(text) do
-    text
-    |> String.replace("/","-")
-    |> Timex.parse!("{0D}-{0M}-{YYYY}")
+    |> parse_pt_date
   end
 
   defp parse_memo(memo_cell) do
