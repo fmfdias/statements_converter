@@ -29,7 +29,7 @@ defmodule StatementsConverter.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:floki, "~> 0.10.0"},
+      {:floki, "~> 0.17.2"},
       {:timex, "~> 3.0"},
       # Workaround to issue when using escript described here: https://github.com/bitwalker/timex/issues/86
       {:tzdata, "~> 0.1.8", override: true},
