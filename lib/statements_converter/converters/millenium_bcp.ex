@@ -31,7 +31,7 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
     Logger.debug fn -> "Parsing data from stream #{inspect stream}" end
     transactions = (stream
     |> Stream.reject(&(length(String.split(&1, ";", parts: 2)) == 1))
-    |> CSV.decode(separator: ?;, strip_cells: true, headers: true)
+    |> CSV.decode!(separator: ?;, strip_fields: true, headers: true)
     |> Enum.map(&parse_row/1))
 
     %Statement{type: "Bank", transactions: transactions}

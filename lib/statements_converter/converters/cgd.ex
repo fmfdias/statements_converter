@@ -32,7 +32,7 @@ defmodule StatementsConverter.Converters.CGD do
     transactions = (
       stream
       |> Stream.reject(&(length(String.split(&1, "\t", parts: 2)) == 1))
-      |> CSV.decode(separator: ?\t, strip_cells: true, headers: true)
+      |> CSV.decode!(separator: ?\t, strip_fields: true, headers: true)
       |> Stream.map(&parse_row/1)
       |> Enum.filter(&(!is_nil(&1)))
     )
