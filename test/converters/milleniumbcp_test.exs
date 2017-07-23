@@ -13,6 +13,9 @@ defmodule MilleniumBCPTest do
     expected_result = %Statement{
       type: "Bank",
       transactions: [
+        %Transaction{amount: -22.10, date: ~D[2017-07-24],
+          memo: "COMPRA 3127 THAT SUPERMARKET",
+          payee: "THAT SUPERMARKET"},
         %Transaction{amount: -4.55, date: ~D[2016-08-26],
           memo: "MMD0000000 THAT SUPERMARKET",
           payee: "THAT SUPERMARKET"},

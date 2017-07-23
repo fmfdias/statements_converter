@@ -8,7 +8,7 @@ defmodule StatementsConverter.Converters.Common do
     |> String.replace(~r/^(\d{2}\/\d{2})\s*/, "")
     |> String.replace(~r/^(COBR(ANCA\s*DD)?\s*SEPA\s*(\w|\d)*\s*)/, "")
     |> String.replace(~r/^(COBRANCA\s*)/, "")
-    |> String.replace(~r/^(COMPRA\s*)/, "")
+    |> String.replace(~r/^(COMPRA\s*)(\d{4}\s*)?/, "")
     |> String.replace(~r/^(DEVOLUCAO\s*)/, "")
     |> String.replace(~r/ELEC\s\d+\/\d{2}\s*/, "")
     |> String.replace(~r/^TRA\.RECEB\s(\w+\sP\/ORD\.DE\s*)?/, "")
