@@ -7,8 +7,8 @@ defmodule StatementsConverter.CLI do
                                      supported_format?: 1]
 
   @moduledoc """
-​  Handle the command line parsing and the dispatch to​
-​  to the correct parsers and converters
+  Handle the command line parsing and the dispatch to​
+  the correct parsers and converters
   """
 
   def main(argv) do

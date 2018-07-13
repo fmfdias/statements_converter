@@ -43,7 +43,8 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
       "Descrição" => memo,
       "Montante" => value }) do
     date = ([parse_pt_date(launch_date),parse_pt_date(value_date)]
-    |> Enum.filter_map(&(&1), &(&1))
+    |> Enum.filter(&(&1))
+    |> Enum.map(&(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
     memo = parse_memo(memo)

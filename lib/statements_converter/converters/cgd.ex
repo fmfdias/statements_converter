@@ -57,7 +57,8 @@ defmodule StatementsConverter.Converters.CGD do
     log = &(Logger.debug(fn -> "#{memo} - #{inspect &1}" end) && &1)
 
     date = ([parse_date(launch_date),parse_date(value_date)]
-    |> Enum.filter_map(&(&1), &(&1))
+    |> Enum.filter(&(&1))
+    |> Enum.map(&(&1))
     |> log.()
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
