@@ -69,12 +69,18 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
   end
 
   defp fetch_data(file) do
-    data = File.read!(file)
+    {:ok, data} = File.open(file, [:read], fn(fileio) ->
+      IO.binread(fileio, :all)
+    end)
     cond do
       String.valid?(data) -> data
-      true -> Logger.debug "File data is not a valid string. Changing encoding!"
-        Codepagex.to_string!(data, "VENDORS/MICSFT/WINDOWS/CP1252")
+      true -> Logger.debug fn -> "File data is not a valid string. Changing encoding!" end
+        convert_encoding(data)
     end
+  end
+
+  defp convert_encoding(data) do
+    :unicode.characters_to_binary(data, {:utf16, :little}, :utf8)
   end
 
   defp parse_memo(memo) do
