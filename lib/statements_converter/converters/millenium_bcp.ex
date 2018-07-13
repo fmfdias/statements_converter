@@ -43,7 +43,8 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
       "Descrição" => memo,
       "Montante" => value }) do
     date = ([parse_pt_date(launch_date),parse_pt_date(value_date)]
-    |> Enum.filter_map(&(&1), &(&1))
+    |> Enum.filter(&(&1))
+    |> Enum.map(&(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
     memo = parse_memo(memo)
@@ -69,12 +70,18 @@ defmodule StatementsConverter.Converters.MilleniumBCP do
   end
 
   defp fetch_data(file) do
-    data = File.read!(file)
+    {:ok, data} = File.open(file, [:read], fn(fileio) ->
+      IO.binread(fileio, :all)
+    end)
     cond do
       String.valid?(data) -> data
-      true -> Logger.debug "File data is not a valid string. Changing encoding!"
-        Codepagex.to_string!(data, "VENDORS/MICSFT/WINDOWS/CP1252")
+      true -> Logger.debug fn -> "File data is not a valid string. Changing encoding!" end
+        convert_encoding(data)
     end
+  end
+
+  defp convert_encoding(data) do
+    :unicode.characters_to_binary(data, {:utf16, :little}, :utf8)
   end
 
   defp parse_memo(memo) do
