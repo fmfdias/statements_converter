@@ -30,7 +30,7 @@ defmodule StatementsConverter.Converters.BancoBPI.XLSX do
   end
 
   def fetch_data(data, :card) do
-    find_first_starting_position(data, "Data Transacção")
+    find_first_starting_position(data, "Data Transação")
     |> clear_data([], :card)
   end
 
