@@ -42,7 +42,12 @@ defmodule StatementsConverter.Converters.CGD do
     %Statement{type: "Bank", transactions: transactions}
   end
 
-  defp parse_row(%{"Crédito" => "","Débito" => ""}), do: nil
+  defp parse_row(%{
+    "Data mov." => launch_date,
+    "Data valor" => value_date,
+    "Débito" => debit_value,
+    "Crédito" => credit_value,
+  }) when launch_date == "" or value_date == "" or (debit_value == "" and credit_value == ""), do: nil
 
   defp parse_row(test = %{
       "Data mov." => launch_date,
