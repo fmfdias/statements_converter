@@ -35,4 +35,13 @@ defmodule StatementsConverter.Converters.Common do
     |> String.replace("/","-")
     |> Timex.parse!("{0D}-{0M}-{YYYY}")
   end
+
+  def parse_iso_8601_date(""), do: nil
+
+  def parse_iso_8601_date(nil), do: nil
+
+  def parse_iso_8601_date(text) do
+    text
+    |> Timex.parse!("{YYYY}-{0M}-{0D}")
+  end
 end
