@@ -40,7 +40,7 @@ defmodule StatementsConverter.Converters.BancoCTT do
   defp parse_row(%{
       "Data da Operação" => value_date,
       "\uFEFFData da Transação" => launch_date,
-      "Nome do beneficiário" => memo,
+      "Movimento" => memo,
       "Montante na Moeda da Conta" => value }) do
     date = ([parse_iso_8601_date(launch_date),parse_iso_8601_date(value_date)]
     |> Enum.filter(&(&1))

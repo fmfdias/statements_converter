@@ -22,6 +22,7 @@ defmodule StatementsConverter.Converters.Common do
     |> String.replace(~r/^TRF\sP2P\s*/, "")
     |> String.replace(~r/^TRF\sINT\s*/, "")
     |> String.replace(~r/^TRF\s*/, "")
+    |> String.replace(~r/\s*\-\s*Cartao\s*\d{4}\s*$/, "")
     |> String.replace(~r/\s*$/, "")
     |> String.replace(~r/\s+/, " ")
   end
