@@ -4,7 +4,7 @@ defmodule StatementsConverter.Converters.BancoCTT do
   alias StatementsConverter.Statement
   alias StatementsConverter.Statement.Transaction
 
-  import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1, parse_pt_date: 1, parse_iso_8601_date: 1]
+  import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1, parse_iso_8601_date: 1]
 
   def parse(file) do
     Logger.debug fn -> "Processing file #{file}" end

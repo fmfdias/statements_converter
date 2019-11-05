@@ -58,7 +58,6 @@ defmodule StatementsConverter.Converters.BancoBPI.XLSX do
       """
     end
     date = ([parse_pt_date(tr_date_cell),parse_pt_date(mov_date_cell)]
-    |> Enum.filter_map(&(&1), &(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
     memo = parse_memo(memo_cell)
