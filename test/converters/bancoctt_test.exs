@@ -1,4 +1,4 @@
-defmodule MilleniumBCPTest do
+defmodule BancoCTTTest do
   use ExUnit.Case
   doctest StatementsConverter.Converters.BancoCTT
 
