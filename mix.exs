@@ -15,7 +15,7 @@ defmodule StatementsConverter.Mixfile do
   #
   # Type "mix help compile.app" for more information
   def application do
-    [applications: [:logger,:timex]]
+    [applications: [:logger,:timex,:xlsxir]]
   end
 
   # Dependencies can be Hex packages:
@@ -29,13 +29,13 @@ defmodule StatementsConverter.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      {:floki, "~> 0.17.2"},
-      {:timex, "~> 3.0"},
+      {:floki, "~> 0.23.0"},
+      {:timex, "~> 3.6.1"},
       # Workaround to issue when using escript described here: https://github.com/bitwalker/timex/issues/86
       {:tzdata, "~> 0.1.8", override: true},
-      {:codepagex, "~> 0.1.3"},
-      {:csv, "~> 2.0.0"},
-      {:xlsxir, "~> 1.5.1"}
+      {:codepagex, "~> 0.1.4"},
+      {:csv, "~> 2.3.0"},
+      {:xlsxir, "~> 1.6.4"}
     ]
   end
 

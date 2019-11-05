@@ -6,8 +6,8 @@ defmodule StatementsConverter.Converters.BancoBPI.XLSX do
 
   import StatementsConverter.Converters.Common, only: [get_payee_from_memo: 1, parse_pt_date: 1]
 
-  def parse do
-    data_list = Xlsxir.get_list
+  def parse(tid) do
+    data_list = Xlsxir.get_list(tid)
     extract_type = find_file_type(data_list)
     data_list
     |> fetch_data(extract_type)
