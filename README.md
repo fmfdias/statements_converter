@@ -4,7 +4,7 @@ This is an command line app I've built as an training app while reading Dave Tho
 
 The tool converts bank statements to the QIF format.
 
-Currently it only supports bank statement files from 2 Portuguese banks, [Banco BPI](http://bancobpi.pt/) and [Millennium BCP](http://www.millenniumbcp.pt).
+Currently it only supports bank statement files from 2 Portuguese banks, [Banco BPI](https://www.bancobpi.pt) and [Millennium BCP](https://www.millenniumbcp.pt).
 
 I may add other Portuguese banks support in the near future, but please, do a pull request if you want to add more.
 
@@ -14,20 +14,20 @@ I may add other Portuguese banks support in the near future, but please, do a pu
 
 #### Prerequisites
 
-* [Elixir](http://elixir-lang.org/install.html)
-* [Erlang](http://elixir-lang.org/install.html#installing-erlang)
+* [Elixir](https://elixir-lang.org/install.html)
+* [Erlang](https://elixir-lang.org/install.html#installing-erlang)
 
 Clone/Download the repo. On the repo folder run the following commands:
 
 ```
-$> MIX_ENV=prod mix deps.get && mix escript.build && mix escript.install
+$> (export MIX_ENV=prod; mix deps.get && mix escript.build && mix escript.install)
 ```
 
 ### Executable
 
 #### Prerequisites
 
-* [Erlang](http://elixir-lang.org/install.html#installing-erlang)
+* [Erlang](https://elixir-lang.org/install.html#installing-erlang)
 
 Download the latest [release](https://github.com/fmfdias/statements_converter/releases/latest).
 After it, paste it to a place in the $PATH environment variable. (e.g: /usr/opt/bin)
@@ -36,9 +36,9 @@ After it, paste it to a place in the $PATH environment variable. (e.g: /usr/opt/
 
 #### Prerequisites
 
-* [Elixir >= 1.4](http://elixir-lang.org/install.html)
-* [Erlang](http://elixir-lang.org/install.html#installing-erlang)
+* [Elixir >= 1.4](https://elixir-lang.org/install.html)
+* [Erlang](https://elixir-lang.org/install.html#installing-erlang)
 
 ```
-$> mix escript.install https://github.com/fmfdias/statements_converter/releases/download/0.1.5/statements_converter
+$> mix escript.install https://github.com/fmfdias/statements_converter/releases/download/0.1.6/statements_converter
 ```
