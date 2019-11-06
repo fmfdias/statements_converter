@@ -50,7 +50,6 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
       """
     end
     date = ([parse_date(tr_date_cell),parse_date(mov_date_cell)]
-    |> Enum.filter_map(&(&1), &(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
     memo = parse_memo(memo_cell)
@@ -79,7 +78,6 @@ defmodule StatementsConverter.Converters.BancoBPI.XLS do
     [tr_date_cell,mov_date_cell,memo_cell,amount_cell|_] = Floki.find(row, "td")
 
     date = ([parse_date(tr_date_cell),parse_date(mov_date_cell)]
-    |> Enum.filter_map(&(&1), &(&1))
     |> Enum.min_by(&Timex.to_unix/1)
     |> Timex.to_date)
     memo = parse_memo(memo_cell)

@@ -22,6 +22,7 @@ defmodule StatementsConverter.Converters.Common do
     |> String.replace(~r/^TRF\sP2P\s*/, "")
     |> String.replace(~r/^TRF\sINT\s*/, "")
     |> String.replace(~r/^TRF\s*/, "")
+    |> String.replace(~r/\s*\-\s*Cartao\s*\d{4}\s*$/, "")
     |> String.replace(~r/\s*$/, "")
     |> String.replace(~r/\s+/, " ")
   end
@@ -34,5 +35,14 @@ defmodule StatementsConverter.Converters.Common do
     text
     |> String.replace("/","-")
     |> Timex.parse!("{0D}-{0M}-{YYYY}")
+  end
+
+  def parse_iso_8601_date(""), do: nil
+
+  def parse_iso_8601_date(nil), do: nil
+
+  def parse_iso_8601_date(text) do
+    text
+    |> Timex.parse!("{YYYY}-{0M}-{0D}")
   end
 end
