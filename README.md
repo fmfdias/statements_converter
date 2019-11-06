@@ -40,5 +40,5 @@ After it, paste it to a place in the $PATH environment variable. (e.g: /usr/opt/
 * [Erlang](https://elixir-lang.org/install.html#installing-erlang)
 
 ```
-$> mix escript.install https://github.com/fmfdias/statements_converter/releases/download/0.1.7/statements_converter
+$> mix escript.install https://github.com/fmfdias/statements_converter/releases/download/0.1.8/statements_converter
 ```
